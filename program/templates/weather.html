@@ -1,0 +1,89 @@
+{% extends "homepage.html" %}
+{% set active_page = 'weather' %}
+{% block weather %}
+
+
+{% if cities == '' %}
+<div class="row centered">
+    <div class="d-flex">
+      <div id="draggable-handle" class="card">
+        <img class="card-img-top" src="static/img/explorer1.png" alt="Card image cap" width="100%" height="auto">
+        <a class="close top-right" href="{{url_for('my_page')}}" style="opacity: 0;" role="button"><span aria-hidden="true">&times;</span></a>  
+          </button>
+            <div class="card-body">
+                <h5 class="card-title">Pogoda</h5>
+                <p class="card-text">
+                    <form method="POST">
+                    <input type="text" placeholder="Podaj miasto:" name="city" required><br> 
+                 </p>
+            </div>
+            <div class="card-footer text-right border-dark">
+                <button class="btn" type="submit"><img src="static/img/ok.png" width="100"></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+
+{% if cities != '' %}
+<div class="row centered">
+    <div class="d-flex">
+      <div id="draggable-handle" class="card">
+        <img class="card-img-top" src="static/img/explorer1.png" alt="Card image cap" width="100%" height="auto">
+        <a class="close top-right" href="{{url_for('my_page')}}" style="opacity: 0;" role="button"><span aria-hidden="true">&times;</span></a>  
+          </button>
+            <div class="card-body">
+                <h5 class="card-title">{{show}}</h5>
+                <p class="card-text">
+                    {% for i in weather %}
+                    <p> {{i["Miasto"]}},
+                        pomiar godz. {{i["Godzina pomiaru"]}},<br>
+                        {{i["Temperatura st. C"]}} st. C, <br>
+                        {{i["Opady %"]}}% opadów,<br>
+                        wiatr - {{i["Wiatr km/h"]}} km/h,<br>
+                    </p>
+                    {% endfor %}
+                    <p>Indeks jakości powietrza:</p>
+                    <p>{{air[0]}}<br>
+                    <p>{{air[1]}}<br>
+                    <p>{{air[2]}}<br>
+                    <p>{{air[3]}}<br>
+                    </p>   
+                 </p>
+            </div>
+            <div class="card-footer text-right">
+                </form>
+                <a class="btn" href="{{url_for('my_page')}}" role="button"><img src="static/img/ok.png" width="100"/></a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+
+{% if weather == [] %}
+<div class="centered">
+    <img src="static/img/explorer.png" alt="explorer">
+    <div class="top-left" style="font-size: 13px;">
+        <p>Przepraszamy, brak takiego miasta w bazach IMGW</p>  
+    </div>
+        <div class="bottom-right">
+        <a class="btn" href="{{url_for('my_page')}}" role="button"><img src="static/img/ok.png" width="100"/></a>
+   </div>
+</div>
+{% endif %}
+
+
+<script>
+    $('#draggable-handle').draggable({
+  handle: '.card-img-top'
+});
+</script>
+
+
+{% endblock %}
+
+
+  

@@ -1,0 +1,55 @@
+{% extends "warehouse/base.html" %}
+{% set active_page = 'list_product' %}
+{% block content %}
+</br>
+<h5>Lista towarów</h5>
+<table class="table table-striped">
+<thead>
+<tr>
+<th scope="col">#</th>
+<th scope="col">Nazwa</th>
+<th scope="col">Ilość</th>
+<th scope="col">Jednostka</th>
+<th scope="col">Cena jedn. <strong>PLN</strong></th>
+<th scope="col">Ilość</th>
+</tr>
+</thead>
+<tbody>
+{% for item in list_items %}
+<tr>
+<th scope="row"></th>
+<td><a href="/{{ item.name }}">{{item.name}}</a></td>
+<td>{{item.quantity}}</td>
+<td>{{item.unit}}</td>
+<td>{{item.unit_price}}</td>
+<td><a class="btn btn-secondary btn-sm" href="{{ url_for('sell_product', product_name=item.name) }}" role="button">Sprzedaj</a></td>
+{% endfor %}  
+</tr>
+<form action="" method="POST">
+<tr> 
+<th scope="row"></th>
+<th> {{form.hidden_tag()}}
+<div class="form-group text-secondary">
+<label for="name">Artykuł</label>
+{{ form.name}}
+</div>
+<th> <div class="form-group text-secondary">
+<label for="body">Ilość</label>
+{{ form.quantity }}
+</div>
+<th> 
+<div class="form-group text-secondary">
+<label for="name">Jednostka</label>
+{{ form.unit}}
+</div>
+<th> <div class="form-group text-secondary">
+<label for="body">Cena</label>
+{{ form.unit_price }}
+</div>
+<th><div>
+<button type="submit" class="btn btn-primary btn-sm my-2 my-lg-0">Kup</button>
+</form>
+</div></th>
+</tr>
+</tbody>
+{% endblock %}

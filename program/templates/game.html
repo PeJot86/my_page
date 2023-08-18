@@ -1,0 +1,42 @@
+{% extends "homepage.html" %}
+{% set active_page = 'game' %}
+{% block game %}
+
+
+<div class="row centered">
+    <div class="d-flex">
+      <div id="draggable-handle" class="card">
+        <img class="card-img-top" src="static/img/explorer1.png" alt="Card image cap" width="100%" height="auto">
+        <a class="close top-right" href="{{url_for('my_page')}}" style="opacity: 0;" role="button"><span aria-hidden="true">&times;</span></a>  
+          </button>
+            <div class="card-body">
+              <p class="card-title">Pomyślałem sobie jakąś liczbę, od 1 do 100 zgadnij jaką?</p>
+              <p class="card-text">
+                <form method="POST">
+                    <input type="number" placeholder="Podaj liczbę:" name="number" required>
+                    <br>
+                    <br>
+                    {{resp}}      
+                  </p>
+            </div>
+            <div class="card-footer text-right border-dark">
+                <button class="btn" type="submit"><img src="static/img/ok.png" width="100"></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $('#draggable-handle').draggable({
+  handle: '.card-img-top'
+});
+</script>
+
+
+{% endblock %}
+
+
+
+  

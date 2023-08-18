@@ -1,0 +1,85 @@
+{% extends "homepage.html" %}
+{% set active_page = "buy" %}
+{% block calc %}
+
+
+<div class="row centered">
+    <div class="d-flex">
+      <div id="draggable-handle" class="card">
+        <img class="card-img-top" src="static/img/explorer1.png" alt="Card image cap" width="100%" height="auto">
+        <a class="close top-right" href="{{url_for('my_page')}}" style="opacity: 0;" role="button"><span aria-hidden="true">&times;</span></a>  
+          </button>
+            <div class="card-body">
+                <h5 class="card-title">Kalkulator walutowy</h5>
+                <p class="card-text">
+                {{number if request.method == "POST"}} {{choice_have_currency if request.method == "POST"}} -
+                {{heading if request.method == "POST"}} {{choice_want_currency if request.method == "POST"}}
+                średni kurs NBP z dn. {{day}}.{{month}}.{{year}} r.
+                <form method="POST" action="">
+                <div>
+                    <input type="number" placeholder="Wpisz kwotę:" value={{choice_quantity}} aria-label="" id="validationCustom01" name="number" required><br>
+                </div>
+                <label for="have_currency">Mam:</label>
+                <br>
+                <select name="have_currency" id="currency">
+                    <option value="PLN" {{'selected' if choice_have_currency=="PLN" }}>PLN - Polska</option>
+                    <option value="USD" {{'selected' if choice_have_currency=="USD" }}>USD - USA</option>
+                    <option value="AUD" {{'selected' if choice_have_currency=="AUD" }}>AUD - Australia</option>
+                    <option value="CAD" {{'selected' if choice_have_currency=="CAD" }}>CAD - Kanada</option>
+                    <option value="EUR" {{'selected' if choice_have_currency=="EUR" }}>EUR - Unia Europejska
+                    </option>
+                    <option value="HUF" {{'selected' if choice_have_currency=="HUF" }}>HUF - Węgry</option>
+                    <option value="CHF" {{'selected' if choice_have_currency=="CHF" }}>CHF - Szwajcaria</option>
+                    <option value="GBP" {{'selected' if choice_have_currency=="GBP" }}>GBP - W. Brytania
+                    </option>
+                    <option value="JPY" {{'selected' if choice_have_currency=="JPY" }}>JPY - Japonia</option>
+                    <option value="CZK" {{'selected' if choice_have_currency=="CZK" }}>CZK - Czechy</option>
+                    <option value="DKK" {{'selected' if choice_have_currency=="DKK" }}>DKK - Dania</option>
+                    <option value="NOK" {{'selected' if choice_have_currency=="NOK" }}>NOK - Norwegia</option>
+                    <option value="SEK" {{'selected' if choice_have_currency=="SEK" }}>SEK - Szwecja</option>
+                    <option value="XDR" {{'selected' if choice_have_currency=="XDR" }}>XDR - SDR </option>
+                </select>
+                <br>
+                <br>
+                <label for="want_currency">Chcę kupić:</label>
+                <br>
+                <select name="want_currency" id="currency">
+                    <option value="PLN" {{'selected' if choice_want_currency=="PLN" }}>PLN - Polska</option>
+                    <option value="USD" {{'selected' if choice_want_currency=="USD" }}>USD - USA</option>
+                    <option value="AUD" {{'selected' if choice_want_currency=="AUD" }}>AUD - Australia</option>
+                    <option value="CAD" {{'selected' if choice_want_currency=="CAD" }}>CAD - Kanada</option>
+                    <option value="EUR" {{'selected' if choice_want_currency=="EUR" }}>EUR - Unia Europejska
+                    </option>
+                    <option value="HUF" {{'selected' if choice_want_currency=="HUF" }}>HUF - Węgry</option>
+                    <option value="CHF" {{'selected' if choice_want_currency=="CHF" }}>CHF - Szwajcaria</option>
+                    <option value="GBP" {{'selected' if choice_want_currency=="GBP" }}>GBP - W. Brytania
+                    </option>
+                    <option value="JPY" {{'selected' if choice_want_currency=="JPY" }}>JPY - Japonia</option>
+                    <option value="CZK" {{'selected' if choice_want_currency=="CZK" }}>CZK - Czechy</option>
+                    <option value="DKK" {{'selected' if choice_want_currency=="DKK" }}>DKK - Dania</option>
+                    <option value="NOK" {{'selected' if choice_want_currency=="NOK" }}>NOK - Norwegia</option>
+                    <option value="SEK" {{'selected' if choice_want_currency=="SEK" }}>SEK - Szwecja</option>
+                    <option value="XDR" {{'selected' if choice_want_currency=="XDR" }}>XDR - SDR </option>
+                </select>
+                <h5><b>{{choice_quantity if request.method == "POST"}} {{choice_have_currency if request.method ==
+                "POST"}} - {{result if request.method == "POST"}} {{choice_want_currency if request.method ==
+                "POST"}}</b></h5>
+                 </p>
+            </div>
+            <div class="card-footer text-right border-dark">
+                <button class="btn" type="submit"><img src="static/img/ok.png" width="100"></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+<script>
+    $('#draggable-handle').draggable({
+  handle: '.card-img-top'
+});
+</script>
+
+
+{% endblock %}

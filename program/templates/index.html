@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Tworzenie złożonych aplikacji i stron internetowych.">
+  <meta name="author" content="Przemysław Jarocki">
+  <meta name="keywords" content="aplikacje_webowe, strony_internetowe, tworzenie_stron, aplikacje_internetowe, webdeveloper, programista_python">
+  <title>Aplikacje i strony internetowe</title>
+  <link href="{{ url_for('static', filename='favicon.ico') }}" rel="icon">
+
+
+<!-- Bootstrap core CSS -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bootstrap.css') }}" crossorigin="anonymous">
+</head>
+
+
+<style>
+body {
+background-repeat: no-repeat;
+background-color: #1a8181; 
+font-family: sans-serif; 
+}
+.container {
+position: absolute;
+text-align: center;
+color: white;
+}
+.top-right {
+position: absolute;
+top: 0px;
+right: 5px;
+}
+.top-left {
+position: absolute;
+top: 50px;
+left: 30px;
+}
+.bottom-right {
+position: absolute;
+bottom: 16px;
+right: 40px;
+}
+.centered {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+.dropdown-menu > a:hover {
+background-color: #040080;
+color: white;
+}
+figure { 
+display: inline-block;
+margin-left: 50px;
+
+}
+.card-footer { 
+background-color: #c0c0c0;
+height: 40px; 
+padding-top: 0px;
+}
+
+/* .modal-body {
+background-position: 
+left,
+right;
+background-repeat: repeat-y;
+background-image:
+url('static/img/window3.png'),
+url( 'static/img/window4.png') */
+
+</style>
+
+
+
+<body onload="startTime()">
+<script>
+  function startTime() {
+    const today = new Date();
+    let h = today.getHours();
+    let m = today.getMinutes();
+    let s = today.getSeconds();
+    m = checkTime(m);
+    h = checkTime(h);
+    document.getElementById('txt').innerHTML =  h + ":" + m;
+    setTimeout(startTime, 1000);
+  }
+  
+  function checkTime(i) {
+    if (i < 10) {i = "0" + i};
+    return i;
+  }
+
+</script>
+  
+<nav class="navbar fixed-bottom" style="background-color: #bdbdbd;">
+  <div class="d-flex justify-content-between w-100" >
+        <div class="btn-group dropup">
+          <button type="button" class="btn btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-hidden="true"><img src="static/img/start_button.jpg" width="60" ></button>
+          <div class="dropdown-menu" style="background-color: #bdbdbd; height:300px; width:250px;">
+              <a class="dropdown-item" href="{{url_for('weather')}}"><img src="static/img/weather.png"> Pogoda</a>
+              <a class="dropdown-item" href="{{url_for('calculator')}}"><img src="static/img/calculator.png"> Kalkulator walut</a>
+              <a class="dropdown-item" href="{{url_for('game')}}"><img src="static/img/game.png" width="30"/> Szczęśliwy traf</a>
+              <a class="dropdown-item" href="#" data-toggle="modal" data-target="#settingsModal" data-backdrop="false"><img src="static/img/settings.png" width="35"/>Ustawienia</a>
+              <br>
+              <br>
+              <div class="dropdown-divider "></div>
+              <a onclick="snd.play()" class="dropdown-item"  type="button" data-toggle="modal" data-target="#shutModal" data-backdrop="false"><img src="static/img/shut_down.png" width="40">Zamknij</a>
+              <script>
+                  var snd = new Audio("/static/error.wav"); 
+              </script>
+          </div>  
+        </div>
+          <img src="static/img/clock.jpg" alt="Clock" style="height:30px; width:100px;">
+            <div class="bottom-right font-weight-bold" id="txt">
+            </div>
+  </div>
+</nav>
+
+<!-- Modal content -->
+
+  <div class="modal fade" id="shutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="background-image: url('static/img/error.png'); background-repeat: no-repeat; background-size:100%; width: 406px; height: 150px;">
+        <div class="modal-header" style="opacity: 0;"></div>
+        <div class="modal-body">
+            <p class="text-dark text-center"> 
+        </p>
+        </div>
+        <div class="bottom-right">
+          <a class="btn" href="{{url_for('shut_down')}}" role="button"><img src="static/img/yes.png" width="100"/></a>
+          <button type="button" class="btn" data-dismiss="modal"><img src="static/img/cancel.png" width="100"/></button>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<div class="modal fade" id="settingsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+  <div class="modal-dialog" role="document">
+      <div class="modal-content" style="background-image: url('static/img/window1.png'); background-repeat: no-repeat; background-size: 100%; height: 350px;">
+      <div class="modal-header" style="opacity: 0;">
+          <button type="button" class="close top-right" style="opacity: 0;" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+      </div>
+      <div class="modal-body text-inline" style="font-size: 13px;">
+          <p class="text-dark text-left" >
+            Technologie użyte przy tworzeniu niniejszej strony:
+            <figure>
+              <a href="https://pl.wikipedia.org/wiki/Python" target="_blank"><img src="static/img/python.png" alt="Python"></a>
+              <figcaption>Python 3</figcaption>
+            </figure>
+            <figure>
+              <a href="https://pl.wikipedia.org/wiki/Flask_(framework)" target="_blank"><img src="static/img/flask.png" alt="Flask"></a>
+              <figcaption>Flask</figcaption>
+            </figure>
+            <figure>
+              <a href="https://pl.wikipedia.org/wiki/JavaScript" target="_blank"><img src="static/img/java.png" alt="JS"></a>
+              <figcaption>JavaScript</figcaption>
+            </figure>
+            <figure>
+              <a href="https://pl.wikipedia.org/wiki/Jinja2" target="_blank"><img src="static/img/jinja.png" alt="Jinja2"></a>
+              <figcaption>Jinja2</figcaption>
+            </figure>
+            <figure>
+              <a href="https://pl.wikipedia.org/wiki/Bootstrap_(framework)" target="_blank"><img src="static/img/boots.png" alt="Bootstrap"></a>
+              <figcaption>Bootstrap</figcaption>
+            </figure>
+            <figure>
+              <img src="static/img/css.png" alt="" >
+              <figcaption>CSS</figcaption>
+            </figure>
+            <figure>
+              <img src="static/img/html.png" alt="" >
+              <figcaption>HTML</figcaption>
+            </figure>
+          </p>
+      </div>
+  </div>
+</div>
+</div>
+
+
+{% block content %}
+{% endblock %}
+{% block weather %}
+{% endblock %}
+{% block calc %}
+{% endblock %}
+{% block game %}
+{% endblock %}
+</body>
+</html>
+
+<!-- scripts  -->
+<script src="{{ url_for('static', filename='main.js') }}"></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+
+

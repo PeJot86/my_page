@@ -1,0 +1,166 @@
+{% extends "index.html" %}
+{% set active_page = 'home' %}
+{% block content %}
+
+<script data-require="jquery@*" data-semver="2.2.0" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script data-require="bootstrap@*" data-semver="3.3.6" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
+
+
+
+    <div class="top-left">
+        <div class="draggable-button">
+            <a class="text-light" href="#" type="button" data-toggle="modal" data-target="#aboutmeModal" data-backdrop="false"><img src="static/img/computer.png" width="50"/><br>O mnie</a>
+        </div>
+        <br>
+        <div class="draggable-button">
+            <a class="text-light" href="#" type="button" data-toggle="modal" data-target="#projectModal" data-backdrop="false"><img src="static/img/folder.png" width="50"/><br>Realizacje</a>
+        </div>
+        <br>
+        <div class="draggable-button">
+            <a class="text-light" href="#" type="button" data-toggle="modal" data-target="#offertsModal" data-backdrop="false"><img src="static/img/oferta.png" width="50"/><br>Usługi</a>
+        </div>
+        <br>
+        <div class="draggable-button">
+             <a class="text-light" href="#" type="button" data-toggle="modal" data-target="#contactModal" data-backdrop="false"><img src="static/img/contact.png" width="50"/><br>Kontakt</a>
+        </div>
+    </div>
+    <div class="bottom-right" style="padding-bottom: 100px;">
+        <div class="draggable-button">
+            <a class="text-light" href="#" type="button" data-toggle="modal" data-target="#binModal" data-backdrop="false"><img src="static/img/bin.png" width="50"/><br>Kosz</a>
+        </div>
+    </div>
+<!-- Modal content -->
+
+    <div class="modal fade" id="aboutmeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header" style="background-image: url('static/img/window1.png'); background-repeat: no-repeat; background-size: 100%;height: 6vh;">
+                <button type="button" class="close top-right" style="opacity: 0;" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+            </div>
+            <div class="modal-body">
+                <img src="static/img/computer.png" width="50"/> O mnie
+                <p class="text-dark text-left border-dark" style="font-size: 13px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. sunt in culpa qui officia deserunt mollit anim id est laborum.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+            <div class="modal-footer" style="background-image: url('static/img/window2.png'); background-repeat: no-repeat; background-size: 100%; background-position: bottom; ">
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="modal fade" id="projectModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background-image: url('static/img/window1.png'); background-repeat: no-repeat; background-size: 100%; height: 6vh;">
+                    <button type="button" class="close top-right" style="opacity: 0;" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                </div>
+            <div class="modal-body" >
+                <img src="static/img/folder.png" width="50"/> Realizacje<br> 
+                <p class="text-dark text-left" style="font-size: 14px;" >
+                    <a href="https://motoricoapp.com" target="_blank" role="button"><u>Motorico</u></a><br>
+                    Motorico to złożony projekt responsywnej aplikacji internetowej wspierającej kupno używanego samochodu, gromadzący społeczność użytowników.<br><br>
+                    <a href="https://e-medicalc.pl" target="_blank" role="button"><u>e-medicalc</u></a><br>
+                    Aplikacja internetowa wspomagająca lekarzy w ich pracy.<br><br>
+                    <a href="https://auto-zone.pl/" target="_blank" role="button"><u>Auto Zone</u></a><br>
+                    Firmowa, responsywna strona internetowa.
+                </p>
+            </div>
+            <div class="modal-footer" style="background-image: url('static/img/window2.png'); background-repeat: no-repeat; background-size: 100%; background-position: bottom; ">
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="modal fade" id="offertsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background-image: url('static/img/window1.png'); background-repeat: no-repeat; background-size: 100%; height: 6vh;">
+                    <button type="button" class="close top-right" style="opacity: 0;" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                </div>
+            <div class="modal-body">
+                <img src="static/img/oferta.png" width="50"/> Usługi
+                <p class="text-dark text-left" style="font-size: 13px;">Oferta</p>
+            </div>
+            <div class="modal-footer" style="background-image: url('static/img/window2.png'); background-repeat: no-repeat; background-size: 100%; background-position: bottom; ">
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="modal fade" id="contactModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background-image: url('static/img/window1.png'); background-repeat: no-repeat; background-size: 100%; height: 6vh;">
+                    <button type="button" class="close top-right" style="opacity: 0;" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            <div class="modal-body">
+                <img src="static/img/contact.png" width="50"/> Napisz do mnie:
+                <p class="text-left" style="font-size: 13px;">
+                    <form method="POST">
+                    <input type="text" name="sendmail_name" class="form-control" id="name" placeholder="Twoje imię" required>
+                    <br>
+                    <input type="email" class="form-control" name="sendmail_email" id="email" placeholder="Twój adres email" required>
+                    <br>
+                    <input type="text" class="form-control" name="sendmail_subject" id="subject" placeholder="Temat" required>
+                    <br>
+                    <textarea class="form-control" name="sendmail_message" rows="2" placeholder="Wiadomość" required></textarea>
+                    <br>
+                    <br>
+                    <button class="btn bottom-right" type="submit"><u>Wyślij</u></button>
+                    </form>
+                </p>
+            </div>
+            <div class="modal-footer" style="background-image: url('static/img/window2.png'); background-repeat: no-repeat; background-size: 100%; background-position: bottom; ">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="binModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header" style="background-image: url('static/img/window1.png'); background-repeat: no-repeat; background-size: 100%; height: 6vh;">
+                <button type="button" class="close top-right" style="opacity: 0;" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        <div class="modal-body">
+            <img src="static/img/bin.png" width="50"/>
+            <p class="text-dark text-left" style="font-size: 13px;">
+                <p>Projekty "z kosza"</p>
+                <a href="{{url_for('warehouse')}}"><u>Magazyn</u></a><br>
+                <p>Przykładowa aplikacja do zarządzania stanami magazynowymi.</p>
+            </p>
+        </div>
+        <div class="modal-footer" style="background-image: url('static/img/window2.png'); background-repeat: no-repeat; background-size: 100%; background-position: bottom; ">
+        </div>
+    </div>
+</div>
+</div>
+
+
+<script>
+$('body').removeClass("modal-open");
+$('.modal-dialog').draggable({
+"handle":".modal-header"
+});
+</script>
+
+<script>
+$('.draggable-button').draggable({
+"handle":".text-light"
+});
+
+</script>
+
+{% endblock %}
+

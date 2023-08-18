@@ -1,0 +1,32 @@
+{% extends "warehouse/base.html" %}
+{% set active_page = 'revenue' %}
+{% block content %}
+
+</br>
+<h5>Finanse</h5>
+
+<table class="table table-striped">
+<thead>
+<tr>
+<th scope="col">#</th>
+<th scope="col">Koszty zaopatrzenia</th>
+<th scope="col">Zyski ze sprzedaży</th>
+<th scope="col">Marża ze sprzedaży 20%</th>
+<th scope="col">Bilans</th>
+</tr>
+</thead>
+<tbody>
+
+<tr> 
+<th scope="row"></th>
+<td>{{sum_value}} zł.</td>
+<td>{{sold_value}} zł.</td>
+<td>{{margin_value}} zł.</td>
+<td>{{revenue}} zł.</td>
+
+</tr>
+</tbody>
+
+{% endblock %}
+
+

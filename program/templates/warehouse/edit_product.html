@@ -1,0 +1,56 @@
+{% extends "warehouse/base.html" %}
+{% set active_page = 'list_product' %}
+{% block content %}
+
+</br>
+<h5>Edytuj:</h5>
+<table class="table table-striped">
+<thead>
+<tr>
+<th scope="col">#</th>
+<th scope="col">Nazwa</th>
+<th scope="col">Ilość</th>
+<th scope="col">Jednostka</th>
+<th scope="col">Cena jedn.</th>
+<th scope="col">Sprzedaj wszystsko</th>
+</tr>
+</thead>
+<tbody>
+{% for item in select_item %}
+<tr> 
+<th scope="row"></th>
+<td>{{item.name}}</td>
+<td>{{item.quantity}}</td>
+<td>{{item.unit}}</td>
+<td>{{item.unit_price}}</td>
+<td><a class="btn btn-secondary btn-sm" href="{{url_for('delete_product', product_name=item.name) }}" role="button">Sprzedaj</a></td>
+</tr>
+</form>
+<form action="" method="POST">
+<tr> 
+<th scope="row"></th>
+<th> {{form.hidden_tag()}}
+<div class="form-group text-secondary">
+<p>Edytuj:</p>
+</div>
+<th> <div class="form-group text-secondary">
+<label for="quantity"></label>
+{{ form.quantity (placeholder=item.quantity)}}
+</div>
+<th> 
+<div class="form-group text-secondary">
+<label for="unit"></label>
+{{ form.unit (placeholder=item.unit)}}
+</div>
+<th> <div class="form-group text-secondary">
+<label for="unit_price"></label>
+{{ form.unit_price (placeholder=item.unit_price)}}
+</div>
+<th><div>
+<input class="btn btn-primary btn-sm" type="submit" value="Zmień">
+</form>
+</div></th>
+</tr>
+</tbody>
+{% endfor %}
+{% endblock %}
