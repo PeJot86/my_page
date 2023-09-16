@@ -1,11 +1,12 @@
 {% extends "index.html" %}
 {% set active_page = 'home' %}
+
+
 {% block content %}
 
 <script data-require="jquery@*" data-semver="2.2.0" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <script data-require="bootstrap@*" data-semver="3.3.6" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
-
 
 
     <div class="top-left">
@@ -17,9 +18,9 @@
             <a class="text-light" href="#" type="button" data-toggle="modal" data-target="#projectModal" data-backdrop="false"><img src="static/img/folder.png" width="50"/><br>Realizacje</a>
         </div>
         <br>
-        <div class="draggable-button">
+        <!-- <div class="draggable-button">
             <a class="text-light" href="#" type="button" data-toggle="modal" data-target="#offertsModal" data-backdrop="false"><img src="static/img/oferta.png" width="50"/><br>Usługi</a>
-        </div>
+        </div> -->
         <br>
         <div class="draggable-button">
              <a class="text-light" href="#" type="button" data-toggle="modal" data-target="#contactModal" data-backdrop="false"><img src="static/img/contact.png" width="50"/><br>Kontakt</a>
@@ -30,6 +31,7 @@
             <a class="text-light" href="#" type="button" data-toggle="modal" data-target="#binModal" data-backdrop="false"><img src="static/img/bin.png" width="50"/><br>Kosz</a>
         </div>
     </div>
+
 <!-- Modal content -->
 
     <div class="modal fade" id="aboutmeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
@@ -42,7 +44,14 @@
             </div>
             <div class="modal-body">
                 <img src="static/img/computer.png" width="50"/> O mnie
-                <p class="text-dark text-left border-dark" style="font-size: 13px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. sunt in culpa qui officia deserunt mollit anim id est laborum.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p class="text-dark text-left border-dark" style="font-size: 13px;">Obecnie od roku pracuję nad komercyjnym projektem systemowej aplikacji
+                    internetowej dla firmy AutoCare S.A. o nazwie Motorico, na samodzielnym
+                    stanowisku Full-stack Developera. Zawodowo z programowaniem
+                    związałem się na początku 2022 roku gdy postanowiłem zrealizować swoją
+                    wieloletnią pasję. Dlatego z powodzeniem ukończyłem 320 godzinny
+                    Bootcamp programowania w języku Python ze wsparciem osobistego
+                    mentora. Szybko się uczę, jestem zaangażowany w to co robię i ciekawy
+                    nowych wyzwań. Design mojej strony jest wynikiem sentymentu z jakim wspominam pierwszy kontakt z komputerem.</p>
             </div>
             <div class="modal-footer" style="background-image: url('static/img/window2.png'); background-repeat: no-repeat; background-size: 100%; background-position: bottom; ">
             </div>

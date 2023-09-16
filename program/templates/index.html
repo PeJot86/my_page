@@ -8,6 +8,26 @@
   <meta name="keywords" content="aplikacje_webowe, strony_internetowe, tworzenie_stron, aplikacje_internetowe, webdeveloper, programista_python">
   <title>Aplikacje i strony internetowe</title>
   <link href="{{ url_for('static', filename='favicon.ico') }}" rel="icon">
+   <!--=== flashes Modal ===-->
+   <div class="modal fade modal-auto-clear" id="modalId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-body p-2" id="flashes">
+          {% with messages = get_flashed_messages(with_categories=true) %}
+          {% for category, message in messages %}
+       <br>
+       <div class="alert alert-{{ category }}" role="alert"> {{ message }}
+       </div>
+       {% endfor %}
+          {% endwith %}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+ 
 
 
 <!-- Bootstrap core CSS -->
@@ -61,6 +81,17 @@ background-color: #c0c0c0;
 height: 40px; 
 padding-top: 0px;
 }
+.danger {
+    color: red
+}
+
+.succes {
+    color: green
+}
+
+.info {
+    color: blue
+}
 
 /* .modal-body {
 background-position: 
@@ -94,7 +125,8 @@ url( 'static/img/window4.png') */
   }
 
 </script>
-  
+
+
 <nav class="navbar fixed-bottom" style="background-color: #bdbdbd;">
   <div class="d-flex justify-content-between w-100" >
         <div class="btn-group dropup">
@@ -118,6 +150,7 @@ url( 'static/img/window4.png') */
             </div>
   </div>
 </nav>
+
 
 <!-- Modal content -->
 
@@ -183,7 +216,8 @@ url( 'static/img/window4.png') */
 </div>
 </div>
 
-
+{% block flashes %}
+{% endblock %}
 {% block content %}
 {% endblock %}
 {% block weather %}
@@ -208,5 +242,16 @@ url( 'static/img/window4.png') */
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
 
+<!-- flashowanie w oknie modala -->
+<script>$(document).ready(function() {
+if ($("#flashes *").length > 0){
+$("#modalId").modal();
+}
+});</script>
 
-
+<!-- autoukrywanie modala po 1s -->
+<script>$('.modal-auto-clear').on('shown.bs.modal', function () {
+$(this).delay(1000).fadeOut(200, function () {
+$(this).modal('hide');
+});
+})</script>
